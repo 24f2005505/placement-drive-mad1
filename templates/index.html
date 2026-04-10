@@ -1,0 +1,77 @@
+{% extends "base.html"%}
+
+{% block header %}
+
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-auto"><img src="{{ url_for('static', filename='logo.png') }}" style="height: 100px;"></div>
+        <div class="col-auto"><h1>PlacementsNow.com</h1></div>
+    </div>
+</div>
+{% endblock header %}
+
+
+{% block main %}
+   <div class="container min-vh-100 text-center justify-content-between">
+        <div class = "row p-4">
+            <div class = "col-12">
+                <h3> Top Companies Actively Hiring! </h3>
+            </div>
+        </div>
+        <div class = "row p-2 fs-5">
+            <div class = "col card max-h-3 p-4 m-2 shadow-lg">
+                <div class = "card-title fw-bold mb-2"> {{stats.top_companies[0]}}</div>
+                <div class ="card-text mb-3 fst-italic fs-5"> Leader in {{stats.top_companies_area[0]}} </div>
+                <div class ="card-text"> {{stats.top_companies_desc[0]}} </div>
+            </div>
+            <div class = "col card max-h-3 p-4 m-2 shadow-lg">
+                <div class = "card-title fw-bold mb-2"> {{stats.top_companies[1]}}</div>
+                <div class ="card-text mb-3 fst-italic fs-5"> Leader in {{stats.top_companies_area[1]}} </div>
+                <div class ="card-text"> {{stats.top_companies_desc[1]}} </div>
+            </div>
+            <div class = "col card max-h-3 p-4 m-2 shadow-lg">
+                <div class = "card-title fw-bold mb-2"> {{stats.top_companies[2]}}</div>
+                <div class ="card-text mb-3 fst-italic fs-5"> Leader in {{stats.top_companies_area[2]}} </div>
+                <div class ="card-text"> {{stats.top_companies_desc[2]}} </div>
+            </div>
+            <div class = "col card max-h-3 p-4 m-2 shadow-lg">
+                <div class = "card-title fw-bold mb-2"> {{stats.top_companies[3]}}</div>
+                <div class ="card-text mb-3 fst-italic fs-5"> Leader in {{stats.top_companies_area[3]}} </div>
+                <div class ="card-text"> {{stats.top_companies_desc[3]}} </div>
+            </div>
+        </div>
+
+        <hr class="my-2 opacity-25">
+        <div class = "row p-4">
+                <div class = "col-12">
+                    <h3> Our services in action! </h3>
+                </div>
+
+                <div class = "row p-2 fs-5">
+                    <div class = "col rounded-circle card p-4 m-2 shadow-lg justify-content-center bg-light">
+                        <div class = "card-title fw-bold mb-2"> Total Student Placed </div>
+                        <div class ="card-text mb-3 fst-italic fs-5"> {{stats.total_students_placed}} </div>
+                    </div>
+                   <div class = "col rounded-circle card p-4 m-2 shadow-lg justify-content-center bg-light">
+                        <div class = "card-title fw-bold mb-2"> Total Students </div>
+                        <div class ="card-text mb-3 fst-italic fs-5"> {{stats.total_students}} </div>
+               
+                    </div>
+                    <div class = "col rounded-circle card p-4 m-2 shadow-lg justify-content-center bg-light">
+                        <div class = "card-title fw-bold mb-2"> Total Registered</div>
+                        <div class ="card-text mb-3 fst-italic fs-5"> {{stats.total_companies}}</div>
+    
+                    </div>
+                    <div class = "col rounded-circle card p-4 m-2 shadow-lg justify-content-center bg-light">
+                        <div class = "card-title fw-bold mb-2"> Total Placement Drives </div>
+                        <div class ="card-text mb-3 fst-italic fs-5"> {{stats.total_drives}} </div>
+            
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+    
+
+{% endblock main %}

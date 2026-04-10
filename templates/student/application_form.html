@@ -1,0 +1,119 @@
+{% extends "student/dashboard_base.html" %}
+
+{% block dashboard_content %}
+
+<h3 class="text-danger"> You are applying for: </h3> <h3> {{job.job_title}} in {{job.company.company_name}}, {{job.location}}.</h3>
+<p> Job Description: {{job.job_description}}</p>
+
+<form method = "POST" action= "/student/_apply">
+    <input type = "hidden" name = "job_id" value = "{{ job.id }}" required>
+
+    <div class = "row mb-3">
+        <div class ="col">
+            <label> Application Date </label>
+            <input type = "text" class = "form-control" placeholder="" name = "application_date" value="{{ date }}" readonly required>
+        </div>
+        
+    </div>
+
+    <div class = "row mb-3">
+        <div class ="col">
+            <label> First Name </label>
+            <input type = "text" class = "form-control" placeholder="First name" name = "fname" value="{{current_user.fname }}" readonly required>
+        </div>
+
+        <div class = "col">
+            <label> Last Name</label>
+            <input type = "text" class = "form-control" placeholder="Last name" name = "lname" value="{{current_user.lname }}" readonly required>
+        </div>
+        
+    </div>
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Username </label>
+            <input type = "text" class = "form-control" placeholder="username" maxlength="80" name = "username" value="{{ current_user.username}}" readonly required>
+        </div>
+
+        <div class = "col">
+            <label> Email </label>
+            <input type = "email" class = "form-control" placeholder="first_last@gmail.com" name ="email" value="{{ current_user.email}}" readonly required>
+        </div>
+    </div>
+
+    <div class="form-check">
+    <div class = "row mb-3">
+        <label class = "form-label"> Choose gender </label>
+        <div class ="col-6 form-check">
+            <input class = "form-check-input" type = "radio" name = "gender" value = "male" {% if current_user.gender == "male" %}checked{% endif %} onclick="return false;" required>
+            <label class = "form-check-label">Male</label>
+        </div>
+
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name = "gender" value="female" {% if current_user.gender == "female" %}checked{% endif %} onclick="return false;" required>
+            <label class = "form-check-label">Female</label>
+        </div>
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name="gender" value="non-binary" {% if current_user.gender == "non-binary" %}checked{% endif %} onclick="return false;" required>
+            <label class = "form-check-label">Non-binary</label>
+        </div>
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name="gender" value="other" {% if current_user.gender == "other" %}checked{% endif %} onclick="return false;" required>
+            <label class = "form-check-label">Other</label>
+        </div>
+    </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class = "col">
+            <label> University Name </label>
+            <input type = "text" class = "form-control" placeholder="IIT, Madras" name = "university_name" value="{{ current_user.student.university}}" readonly required>
+        </div>
+
+        <div class = "col">
+            <label> Major </label>
+            <input type = "text" class = "form-control" placeholder="Computer Science Engineering" name ="major" value="{{ current_user.student.major}}" readonly>
+        </div>
+
+        <div class = "col">
+            <label> CGPA </label>
+            <input type = "text" class = "form-control" placeholder="10/10" name ="gpa" value="{{ current_user.student.gpa}}" readonly>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class = "col">
+            <label> Resume path </label>
+            <input type = "text" class = "form-control" placeholder="www.resumepath.com" name = "resume" value="{{ current_user.student.resume_path}}" readonly>
+        </div>
+
+        <div class = "col">
+            <label> Years of experience </label>
+            <input type = "text" class = "form-control" placeholder="1.5" name ="exp" value="{{ current_user.student.years_of_experience}}" readonly>
+        </div>
+
+    </div>
+
+    <div class="row mb-3">
+        <div class = "col">
+            <label> Relevant Skills </label>
+            <input type = "text" class = "form-control" placeholder="Python, SQL, Machine Learning" name = "relevant_skills" required>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class = "col">
+            <label> Cover Letter </label>
+            <textarea class = "form-control" name = "cover_letter" rows = "5" placeholder="Cover letter" required></textarea>
+        </div>
+    </div>
+
+    <div class="row mb-6">
+        <div class = "col">
+            <button type = "submit">Submit</button>
+        </div>
+    </div>
+
+</form>
+
+{%endblock dashboard_content%}

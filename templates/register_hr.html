@@ -1,0 +1,130 @@
+{% extends "base.html"%}
+
+{% block header%}
+    <h1> Register </h1>
+{% endblock header%}
+
+{% block main %}
+
+<div class = "container-fluid align-items-center justify-content-center">
+    <div class = "row text-left text-danger">
+        <div class = "col-12">*All fields are required.</div>
+    </div>
+</div>
+
+<div class = "container-fluid mt-5 min-vh-100 align-items-center justify-content-center">
+<form method = "POST" action="/register_hr">
+    <div class = "row mb-3">
+        <div class ="col">
+            <label> First Name </label>
+            <input type = "text" class = "form-control" placeholder="First name" name = "fname" required>
+        </div>
+
+        <div class = "col">
+            <label> Last Name</label>
+            <input type = "text" class = "form-control" placeholder="Last name" name = "lname" required>
+        </div>
+        
+    </div>
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Username </label>
+            <input type = "text" class = "form-control" placeholder="username", maxlength="80" name = "username" required>
+        </div>
+
+        <div class = "col">
+            <label> Email </label>
+            <input type = "email" class = "form-control" placeholder="first_last@gmail.com" name ="email" required>
+        </div>
+
+    </div>
+
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Password </label>
+            <input type = "password" class = "form-control" placeholder="Password" name = "password" required>
+        </div>
+
+        <div class = "col">
+            <label> Retype Password </label>
+            <input type = "password" class = "form-control" placeholder="Password" name = "con_password" required>
+        </div>
+    </div>
+
+
+
+    <div class="form-check">
+    <div class = "row mb-3">
+        <label class = "form-label"> Choose gender </label>
+        <div class ="col-6 form-check">
+            <input class = "form-check-input" type = "radio" name = "gender" value = "male" required>
+            <label class = "form-check-label">Male</label>
+        </div>
+
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name = "gender" value="female" required>
+            <label class = "form-check-label">Female</label>
+        </div>
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name="gender" value="non-binary" required>
+            <label class = "form-check-label">Non-binary</label>
+        </div>
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name="gender" value="other" required>
+            <label class = "form-check-label">Other</label>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Company Name </label>
+            <input type = "text" class = "form-control" placeholder="OpenAI", name = "comp_name" required>
+        </div>
+
+        <div class = "col">
+            <label> Company Type </label>
+            <input type = "text" class = "form-control" placeholder="AI Research" name ="comp_type" required>
+        </div>
+
+        <div class = "col">
+            <label> Area of operations </label>
+            <input type = "text" class = "form-control" placeholder="Technology" name ="comp_area" required>
+        </div>
+
+    </div>
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Company Website </label>
+            <input type = "text" class = "form-control" placeholder="https://openai.com", name = "comp_website">
+        </div>
+    </div>
+
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Company Description </label>
+            <input type = "text" class = "form-control" placeholder="Frontier lab doing research on LLMs and MLLMs.",  name = "comp_desc" required>
+        </div>
+    </div>
+
+    <div class="row mb-6">
+        <div class = "col">
+            <button type = "submit" class="btn btn-primary">Register</button>
+        </div>
+    </div>
+
+
+    
+
+  
+
+</form>
+</div>
+
+{%endblock main%}

@@ -1,0 +1,47 @@
+{% extends 'company/dashboard_base.html' %}
+
+{% block dashboard_content %}
+
+<div class="container-fluid mt-4 mb-4">
+    <h2>My Placement Drives</h2>
+    <form method = "POST" action = '/company/placement_drives' class="d-flex">
+        <div class = "col-6 me-2">
+                <input type ="text" name = "query" class="form-control" placeholder="Search for my placement drives by job title and status.">
+        </div>
+        <div class = "col-3 me-2">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href = "/company/placement_drives" class = "btn btn-primary">Reset</a>
+        </div>
+
+    </form>
+</div>    
+
+<div class = "container bg-light mb-4" style="max-height: 600px; min-height: 600px; overflow-y: auto;">
+    {% if make_table_from_my_jobs %}
+    {{ make_table_from_my_jobs|safe }}
+    {% else %}
+    <div class="row p-4 text-center">
+        <span class= "fs-5">No data to show.</span>
+    </div>
+    {% endif %}
+
+</div>
+
+<div class = "container bg-light mb-4" style="max-height: 600px; min-height: 600px;">
+    <h3 class = "text-center">Applicants</h3>
+    {% if application_table %}
+    {{ application_table|safe }}
+    {% else %}
+    <div class="row p-4 text-center">
+        <span class= "fs-5">No data to show.</span>
+    </div>
+    {% endif %}
+  
+
+</div>
+
+
+
+
+
+{% endblock %}

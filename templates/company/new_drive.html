@@ -1,0 +1,58 @@
+{% extends "company/dashboard_base.html" %}
+
+{% block dashboard_content %}
+
+<h3 class="text-danger"> Create New Placement Drive </h3>
+<p> Fill the details below to create a new placement drive.</p>
+
+<form method = "POST" action= "/company/new_drive">
+
+    <div class = "row mb-3">
+        <div class ="col">
+            <label> Job Title </label>
+            <input type = "text" class = "form-control" placeholder="Software Engineer" name = "job_title" maxlength="80" required>
+        </div>
+
+        <div class = "col">
+            <label> Location </label>
+            <input type = "text" class = "form-control" placeholder="Bangalore" name = "location" maxlength="80" required>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class = "col">
+            <label> Salary Range </label>
+            <input type = "text" class = "form-control" placeholder="10-15 LPA" name = "salary_range" maxlength="50" required>
+        </div>
+
+        <div class = "col">
+            <label> Minimum GPA </label>
+            <input type = "text" class = "form-control" placeholder="8.0" name ="min_req_gpa" required>
+        </div>
+
+        <div class = "col"><label> Deadline </label><input type = "date" class = "form-control" name ="deadline" required>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class = "col"><label> Required Skills </label><input type = "text" class = "form-control" placeholder="Python, NLP, Machine Learning" name = "minimum_skills" required>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class = "col">
+            <label> Job Description </label>
+            <textarea class = "form-control" name = "job_description" rows = "5" placeholder="Job description" required></textarea>
+        </div>
+    </div>
+
+
+    <div class="row mb-6">
+        <div class = "col">
+            <button type = "submit">Submit</button>
+        </div>
+    </div>
+
+</form>
+
+{% endblock dashboard_content %}

@@ -1,0 +1,40 @@
+{% extends 'student/dashboard_base.html' %}
+
+{% block dashboard_content %}
+
+
+{% if stats.is_placed == 'True' %}
+    <h3 class="text-danger"> Congratulations! You have been placed.</h3>
+    <p class="text-success"> <b> Company Name: </b> {{stats.company_name}},  <b> Job Title: </b>{{stats.job_title}}</h4> </p>
+{% endif %}
+
+
+<div class="container-fluid mt-4 mb-4">
+    <h2>My applications</h2>
+    <form method = "POST" action = '/student/history' class="d-flex">
+        <div class = "col-6 me-2">
+                <input type ="text" name = "query" class="form-control" placeholder="Search for company name, job title and application status..">
+        </div>
+        <div class = "col-3 me-2">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href = "/student/history" class = "btn btn-primary">Reset</a>
+        </div>
+
+    </form>
+</div>    
+
+<div class = "container bg-light mb-4" style="max-height: 600px; min-height: 600px; overflow-y: auto;">
+    {% if make_table_from_applied_jobs %}
+    {{ make_table_from_applied_jobs|safe }}
+    {% else %}
+    <div class="row p-4 text-center">
+        <span class= "fs-5">No data to show.</span>
+    </div>
+    {% endif %}
+
+</div>
+
+
+
+
+{% endblock %}

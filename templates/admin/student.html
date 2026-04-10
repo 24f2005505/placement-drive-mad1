@@ -1,0 +1,47 @@
+{% extends 'admin/dashboard_base.html' %}
+
+{% block dashboard_content %}
+
+<div class="container-fluid mt-4 mb-4">
+    <h2>Student Management</h2>
+    <form method = "POST" action = '/admin/student' class="d-flex">
+        <div class = "col-6 me-2">
+                <input type ="text" name = "query" class="form-control" placeholder="Search for students by name, email and student id.">
+        </div>
+        <div class = "col-3 me-2">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href = "/admin/student" class = "btn btn-primary">Reset</a>
+        </div>
+
+    </form>
+</div>    
+
+<div class = "container bg-light mb-5" style="max-height: 600px; min-height: 600px; overflow-y: auto;">
+    {% if student_table %}
+    {{ student_table|safe }}
+    {% else %}
+    <div class="row p-4 text-center">
+        <span class= "fs-5">No data to show.</span>
+    </div>
+    {% endif %}
+
+</div>
+
+<h3 class = "text-center mb-4 mt-4">Approve Students</h3>
+<div class = "container bg-light mt-4 mb-4" style="max-height: 600px; min-height: 600px; overflow-y: auto;">
+    {% if pending_student_table %}
+    {{ pending_student_table|safe }}
+    {% else %}
+    <div class="row p-4 text-center">
+        <span class= "fs-5">No data to show.</span>
+    </div>
+    {% endif %}
+  
+
+</div>
+
+
+
+
+
+{% endblock %}

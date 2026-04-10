@@ -1,0 +1,64 @@
+{% extends "company/dashboard_base.html" %}
+
+{% block dashboard_content %}
+
+
+<div class = "container">
+    <div class = "row">
+
+        <div class="card shadow-sm mb-4 bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Name</h5>
+                <p class="card-text">{{stats.my_name}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Company Name</h5>
+                <p class="card-text">{{stats.company_name}}</p>
+            </div>
+
+        </div>
+
+        <div class="card shadow-sm mb-4 bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Total Open Drives</h5>
+                <p class="card-text">{{stats.total_open_drives}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Drives</h5>
+                <p class="card-text">{{stats.total_drives}}</p>
+            </div>
+
+        </div>
+
+
+        <div class="card shadow-sm mb-4 bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Total Applications</h5>
+                <p class="card-text">{{stats.total_applications}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Pending Applications</h5>
+                <p class="card-text">{{stats.total_pending_applications}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Students Hired</h5>
+                <p class="card-text">{{stats.total_students_hired}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">My approval status</h5>
+                <p class="card-text">{{stats.my_approval}}</p>
+            </div>
+        </div>
+ 
+    </div>
+
+
+</div>
+
+
+{% endblock %}

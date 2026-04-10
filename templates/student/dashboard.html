@@ -1,0 +1,65 @@
+{% extends "student/dashboard_base.html" %}
+
+{% block dashboard_content %}
+
+{% if stats.is_placed == 'True' %}
+    <h3 class="text-danger"> Congratulations! You have been placed.</h3>
+    <p class="text-success"><b> Company Name: </b> {{stats.company_name}},  <b> Job Title: </b> {{stats.job_title}}</p>
+
+{% elif stats.is_offered == 'True' %}
+    <h3 class="text-danger"> Congratulations! You have been Accepted.</h3><p class="text-success"> See your applications in history for more details. </p>
+
+{% elif stats.is_shortlisted == 'True' %}
+    <h3 class="text-danger"> Congratulations! You have been Shortlisted.</h3><p class="text-success"> See your applications in history for more details. </p>
+
+{% endif %}
+
+<div class = "container">
+    <div class = "row">
+
+        <div class="card shadow-sm mb-4 bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Name</h5>
+                <p class="card-text">{{stats.my_name}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">University</h5>
+                <p class="card-text">{{stats.my_university}}</p>
+            </div>
+
+        </div>
+
+        <div class="card shadow-sm mb-4 bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Total Open Drives</h5>
+                <p class="card-text">{{stats.total_open_drives}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Companies</h5>
+                <p class="card-text">{{stats.total_companies}}</p>
+            </div>
+
+        </div>
+
+
+        <div class="card shadow-sm mb-4 bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Total Applications Sent</h5>
+                <p class="card-text">{{stats.total_applications_sent}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">My approval status</h5>
+                <p class="card-text">{{stats.my_approval}}</p>
+            </div>
+        </div>
+ 
+    </div>
+
+
+</div>
+
+
+{% endblock %}

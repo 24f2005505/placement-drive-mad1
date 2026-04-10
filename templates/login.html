@@ -1,0 +1,44 @@
+{% extends "base.html"%}
+
+{% block header %}
+
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-auto"><img src="{{ url_for('static', filename='logo.png') }}" style="height: 100px;"></div>
+        <div class="col-auto"><h1>PlacementsNow.com</h1></div>
+    </div>
+</div>
+{% endblock header %}
+
+{% block main %}
+
+<div class="container min-vh-100">
+        <div class = "row">
+        <div class = "col-12 mb-5 mt-5">
+        <h3> Please enter your username and password to login. </h3>
+        </div>
+        <div class = "col-6">
+            <form method = "POST" action="/login">
+                <div class = "row mb-3">
+                    <div class = "col-8">
+                        <label> Username </label>
+                        <input type = "text" class = "form-control" placeholder="username", maxlength="80" name = "username" required>
+                    </div>
+                </div>
+                <div class = "row mb-3">
+                    <div class = "col-8">
+                        <label> Password </label>
+                        <input type = "password" class = "form-control" placeholder="Password" name = "password" required>
+                    </div>
+                </div>
+                <div class = "row mb-3">
+                    <div class = "col">
+                        <button type = "submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

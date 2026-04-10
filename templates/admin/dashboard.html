@@ -1,0 +1,59 @@
+{% extends "admin/dashboard_base.html" %}
+
+{% block dashboard_content %}
+
+<div class = "container">
+    <div class = "row">
+
+        <div class="card shadow-sm mb-4 bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Total Registered Students</h5>
+                <p class="card-text">{{stats.total_students}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Placed Students</h5>
+                <p class="card-text">{{stats.total_students_placed}}</p>
+            </div>
+
+        </div>
+
+        <div class="card shadow-sm mb-4 bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Total Companies</h5>
+                <p class="card-text">{{stats.total_companies}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Placement Drives</h5>
+                <p class="card-text">{{stats.total_drives}}</p>
+            </div>
+
+        </div>
+
+
+        <div class="card shadow-sm mb-4 bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Total Companies Pending approval</h5>
+                <p class="card-text">{{stats.total_companies_pending}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Students Pending Approval</h5>
+                <p class="card-text">{{stats.total_students_pending}}</p>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Total Drives Pending Approval</h5>
+                <p class="card-text">{{stats.total_pending_drives}}</p>
+            </div>
+
+        </div>
+ 
+    </div>
+
+
+</div>
+
+
+{% endblock %}

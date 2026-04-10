@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container-fluid mt-1">
+    <div class="row min-vh-100">
+        <div class="col-3 bg-dark text-light p-3">
+            <h3>Admin Menu</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/admin/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/admin/student">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/admin/company">Companies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/admin/job">Placement Drives</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/admin/applications">Applications</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col-9 p-4">
+            {% block dashboard_content %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

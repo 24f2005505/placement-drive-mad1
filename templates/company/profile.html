@@ -1,0 +1,98 @@
+{% extends "company/dashboard_base.html" %}
+
+{% block dashboard_content %}
+
+<div class = "container">
+    <div class = "row text-left">
+        <div class = "col-12">You can edit all fields except username and email.</div>
+    </div>
+</div>
+
+<form method = "POST" action= "/company/profile">
+    <div class = "row mb-3">
+        <div class ="col">
+            <label> First Name </label>
+            <input type = "text" class = "form-control" placeholder="First name" name = "fname" value="{{current_user.fname }}" required>
+        </div>
+
+        <div class = "col">
+            <label> Last Name</label>
+            <input type = "text" class = "form-control" placeholder="Last name" name = "lname" value="{{ current_user.lname}}" required>
+        </div>
+    </div>
+
+    <div class = "row mb-3">
+        <div class = "col">
+            <label> Username </label>
+            <input type = "text" class = "form-control" placeholder="username" maxlength="80" name = "username" value="{{current_user.username }}" readonly>
+        </div>
+
+        <div class = "col">
+            <label> Email </label>
+            <input type = "email" class = "form-control" placeholder="first_last@gmail.com" name ="email" value="{{ current_user.email }}" readonly>
+        </div>
+    </div>
+
+    <div class="form-check">
+    <div class = "row mb-3">
+        <label class = "form-label"> Choose gender </label>
+        <div class ="col-6 form-check">
+            <input class = "form-check-input" type = "radio" name = "gender" value = "male" {% if current_user.gender == "male" %}checked{% endif %} required>
+            <label class = "form-check-label">Male</label>
+        </div>
+
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name = "gender" value="female" {% if current_user.gender == "female" %}checked{% endif %} required>
+            <label class = "form-check-label">Female</label>
+        </div>
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name="gender" value="non-binary" {% if current_user.gender == "non-binary" %}checked{% endif %} required>
+            <label class = "form-check-label">Non-binary</label>
+        </div>
+        <div class = "col-6 form-check">
+            <input class = "form-check-input" type = "radio" name="gender" value="other" {% if current_user.gender == "other" %}checked{% endif %} required>
+            <label class = "form-check-label">Other</label>
+        </div>
+    </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class = "col">
+            <label> Company Name </label>
+            <input type = "text" class = "form-control" placeholder="Company name" name = "company_name" value="{{current_user.company.company_name }}" required>
+        </div>
+
+        <div class = "col">
+            <label> Company Type </label>
+            <input type = "text" class = "form-control" placeholder="startup / mid-size / large" name ="company_type" value="{{ current_user.company.company_type }}" required>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class = "col">
+            <label> Company Area </label>
+            <input type = "text" class = "form-control" placeholder="tech, finance, healthcare" name = "company_area" value="{{current_user.company.company_area }}" required>
+        </div>
+
+        <div class = "col">
+            <label> Website URL </label>
+            <input type = "text" class = "form-control" placeholder="https://example.com" name ="website_url" value="{{current_user.company.website_url }}">
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class = "col">
+            <label> Company Description </label>
+            <textarea class = "form-control" name = "company_description" rows="4" required>{{current_user.company.company_description }}</textarea>
+        </div>
+    </div>
+
+    <div class="row mb-6">
+        <div class = "col">
+            <button type = "submit">Save</button>
+        </div>
+    </div>
+
+</form>
+
+{% endblock dashboard_content %}
